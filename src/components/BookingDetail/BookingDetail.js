@@ -8,8 +8,9 @@ function BookingDetail() {
   const data = location.state;
   const pickupReturnStationId = data.stationId;
   const bookingId = data.bookingId;
+  const pickupReturnStationName = data.stationName;
   const [details, setDetails] = useState([]);
-
+  
   useEffect(() => {
     fetchDetails();
   }, []);
@@ -26,6 +27,8 @@ function BookingDetail() {
       <div className="text-xl text-slate-950">Customer Name : {details.customerName}</div>
       <div className="text-xl text-slate-950">Start date : {moment(details.startDate).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
       <div className="text-xl text-orange-700">End date : {moment(details.endDate).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
+      <div className="text-xl text-orange-700">Duration : {moment(details.endDate).diff(moment(details.startDate), 'days')}</div>
+      <div className="text-xl text-slate-950">Pickup Station : {pickupReturnStationName}</div>
       <div><Link to="/roadsurfer_ws">Go Back to Bookings</Link></div>
     </div>
   );

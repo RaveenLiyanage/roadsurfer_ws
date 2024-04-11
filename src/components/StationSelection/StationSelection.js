@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const StationSelection = ({ setStationId, setWeek }) => {
+const StationSelection = ({ setStationId, setStationName }) => {
   const [stations, setStations] = useState([]);
   const [selectedStation, setSelectedStation] = useState();
 
@@ -18,7 +18,7 @@ const StationSelection = ({ setStationId, setWeek }) => {
   const handleStationSelect = (event) => {
     setStationId(event.target.value);
     setSelectedStation(event.target.value);
-    setWeek(1);
+    setStationName(stations[event.target.value].name)
   };
 
   return (
