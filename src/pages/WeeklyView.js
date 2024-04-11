@@ -7,7 +7,7 @@ function WeeklyView() {
   const [week, setWeek] = useState();
   const [stationId, setStationId] = useState(1);
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-full bg-slate-300">
       <Header setWeek={setWeek} />
       <StationSelection setStationId={setStationId} setWeek={setWeek}/>
       <Booking week={week} stationId={stationId}/>

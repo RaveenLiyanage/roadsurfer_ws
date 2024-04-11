@@ -35,10 +35,11 @@ function Booking({ week, stationId }) {
       daysBookings.push(
         <div >
           {bookingsForDay.map((booking) => (
-            <div> 
-              <div >
-                <Link to='/roadsurfer_ws/booking' state={{stationId:booking.pickupReturnStationId, bookingId:booking.id}}>{booking.customerName}</Link>
-              </div>
+            <div className="p-2 bg-yellow-300 border-8 rounded-md">
+              <Link to='/roadsurfer_ws/booking' state={{stationId:booking.pickupReturnStationId, bookingId:booking.id}}>
+                <span>{booking.customerName}</span>
+                <span>{new Date(booking.startDate).getDate()}</span>
+              </Link>
             </div>
           ))}
         </div>
@@ -47,17 +48,13 @@ function Booking({ week, stationId }) {
     }
 
   return (
-    <div>
-      <div>
-        <div className="flex justify-around grid-cols-7 day" key="day-title">
-          {moment.weekdaysShort().map((day,i) => (
-            <div className="flex flex-col">
-              <span key={day}>{day}</span>
-               {renderWeekGrid(i)} 
-            </div>
-          ))}
+    <div className="flex justify-around grid-cols-7 border-t-8 bg-slate-300 day" key="day-title">
+      {moment.weekdays().map((day,i) => (
+        <div className="flex flex-col">
+          <span className="p-4 text-xl font-semibold bg-orange-300 rounded-md" key={day}>{day}</span>
+            {renderWeekGrid(i)} 
         </div>
-      </div>
+      ))}
     </div>
   );
 }

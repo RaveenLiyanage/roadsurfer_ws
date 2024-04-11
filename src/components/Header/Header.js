@@ -13,12 +13,12 @@ function Header({setWeek}) {
     setWeek(currentWeek);
   }
   return (
-    <div className="flex flex-row justify-around w-full">
-      <button onClick={handlePrevious}>Previous</button>
-      <div className="text-4xl">
+    <div className="flex flex-row justify-around w-full p-5 bg-slate-900">
+      <button className='p-5 text-2xl bg-red-300 border-black border-solid rounded-md h-2/4' onClick={handlePrevious}>Previous</button>
+      <div className="text-4xl text-zinc-200">
         Weekly Bookings
       </div>
-      <button onClick={handleNext}>Next</button>
+      <button className='p-5 text-2xl bg-red-300 border-black border-solid rounded-md h-2/4' onClick={handleNext}>Next</button>
     </div>
   );
 }

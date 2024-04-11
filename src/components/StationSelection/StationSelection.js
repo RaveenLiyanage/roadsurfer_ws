@@ -22,8 +22,9 @@ const StationSelection = ({ setStationId, setWeek }) => {
   };
 
   return (
-    <div>
-      <select value={selectedStation? selectedStation.id : stations[0]?.id} onChange={handleStationSelect}>
+    <div className="flex justify-center py-5 text-2xl bg-blue-800 ">
+      <div className="text-gray-200 border-r-8 border-blue-800">Station : </div>
+      <select className="text-center text-gray-100 bg-blue-700 rounded-md " value={selectedStation? selectedStation.id : stations[0]?.id} onChange={handleStationSelect}>
         {stations.map((station) => (
           <option key={station.id} value={station.id}>
             {station.name}
