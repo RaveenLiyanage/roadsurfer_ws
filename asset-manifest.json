@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/roadsurfer_ws/static/css/main.6947080d.css",
-    "main.js": "/roadsurfer_ws/static/js/main.7b643490.js",
+    "main.css": "/roadsurfer_ws/static/css/main.6611ee7e.css",
+    "main.js": "/roadsurfer_ws/static/js/main.2862e370.js",
     "index.html": "/roadsurfer_ws/index.html",
-    "main.6947080d.css.map": "/roadsurfer_ws/static/css/main.6947080d.css.map",
-    "main.7b643490.js.map": "/roadsurfer_ws/static/js/main.7b643490.js.map"
+    "main.6611ee7e.css.map": "/roadsurfer_ws/static/css/main.6611ee7e.css.map",
+    "main.2862e370.js.map": "/roadsurfer_ws/static/js/main.2862e370.js.map"
   },
   "entrypoints": [
-    "static/css/main.6947080d.css",
-    "static/js/main.7b643490.js"
+    "static/css/main.6611ee7e.css",
+    "static/js/main.2862e370.js"
   ]
 }
