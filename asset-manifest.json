@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/roadsurfer_ws/static/css/main.4a2b5448.css",
+    "main.js": "/roadsurfer_ws/static/js/main.b1eea921.js",
+    "index.html": "/roadsurfer_ws/index.html",
+    "main.4a2b5448.css.map": "/roadsurfer_ws/static/css/main.4a2b5448.css.map",
+    "main.b1eea921.js.map": "/roadsurfer_ws/static/js/main.b1eea921.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a2b5448.css",
+    "static/js/main.b1eea921.js"
+  ]
+}
