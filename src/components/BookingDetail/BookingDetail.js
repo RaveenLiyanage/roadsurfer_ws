@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import moment from "moment";
+import { useLocation, Link } from "react-router-dom";
 
 function BookingDetail() {
   const location = useLocation();
@@ -21,9 +22,11 @@ function BookingDetail() {
   };
 
   return (
-    <div>
-      <div>Customer Name</div>
-      <div>{details.customerName}</div>
+    <div className="bg-gray-200 rounded-md">
+      <div className="text-xl text-slate-950">Customer Name : {details.customerName}</div>
+      <div className="text-xl text-slate-950">Start date : {moment(details.startDate).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
+      <div className="text-xl text-orange-700">End date : {moment(details.endDate).format("dddd, MMMM Do YYYY, h:mm:ss a")}</div>
+      <div><Link to="/roadsurfer_ws">Go Back to Bookings</Link></div>
     </div>
   );
 }
