@@ -9,8 +9,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<WeeklyView />}/>
-        <Route path="/booking" element={<BookingDetail />} />
+        <Route path="/roadsurfer_ws" element={<WeeklyView />}/>
+        <Route path="/roadsurfer_ws/booking" element={<BookingDetail />} />
       </Routes>
     </BrowserRouter>
   );

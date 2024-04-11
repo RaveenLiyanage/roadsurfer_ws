@@ -37,7 +37,7 @@ function Booking({ week, stationId }) {
           {bookingsForDay.map((booking) => (
             <div> 
               <div >
-                <Link to='/booking' state={{stationId:booking.pickupReturnStationId, bookingId:booking.id}}>{booking.customerName}</Link>
+                <Link to='/roadsurfer_ws/booking' state={{stationId:booking.pickupReturnStationId, bookingId:booking.id}}>{booking.customerName}</Link>
               </div>
             </div>
           ))}
