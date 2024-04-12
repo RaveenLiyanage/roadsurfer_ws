@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 
-function Booking({ stationId, stationName }) {
+function Booking({ stationId }) {
   const [bookings, setBookings] = useState([]); //store fetched booking details
   const [week, setWeek] = useState(1);
   const datesWithIds = [];
@@ -18,27 +18,28 @@ function Booking({ stationId, stationName }) {
     const url = `https://605c94c36d85de00170da8b4.mockapi.io/stations/${stationId}/bookings`;
     const response = await axios.get(url);
     setBookings(response.data);
-    setWeek(1);
+    setWeek(1); //when the station is changed, the schedule is displayed from the week of the earliest booking
   }
 
-  bookings.map((booking) => dates.push(new Date(booking.startDate)));
-  datesWithIds.map((booking) =>
-    dates.push({ id: booking.id, startDate: new Date(booking.startDate) })
-  );
+  bookings.map((booking) => dates.push(new Date(booking.startDate))); //getting the starting dates of bookings
 
-  const startDate = new Date(Math.min.apply(null, dates));
+  const startDate = new Date(Math.min.apply(null, dates)); //finding the earliest booking of the station
   const calendarStartingDate = moment(startDate).subtract(
     startDate.getDay(),
     "days"
-  );
+  ); //finding the date of the sunday in the week which the earliest booking is placed
 
+  //calculating the date of the starting date of the displayed week
   const weekStartDate = moment(calendarStartingDate)
     .add((week - 1) * 7, "days")
     .format("dddd DD/MM/YYYY");
+
+  //calculating the date of the last date of the displayed week
   const weekEndDate = moment(calendarStartingDate)
     .add((week - 1) * 7 + 6, "days")
     .format("dddd DD/MM/YYYY");
 
+  //finding whether there are any booking available for the day (this function is called in line 119 )
   const renderWeekGrid = (day) => {
     const daysBookings = [];
     const currentDay = new Date(
@@ -47,8 +48,9 @@ function Booking({ stationId, stationName }) {
     console.log(moment(currentDay).format("DD/MM/YYYY"))
     const bookingsForDay = bookings.filter(
       (booking) =>
-        moment(new Date(booking.startDate)).format('DD/MM/YYYY') == moment(currentDay).format("DD/MM/YYYY")
+        moment(new Date(booking.startDate)).format('DD/MM/YYYY') == moment(currentDay).format("DD/MM/YYYY") //checking the starting day of the booking and the current day is same, if true the booking details should be displayed
     );
+    //if there are bookings for the day, they are pushed in to an array to be displayed
     daysBookings.push(
       <div>
         {bookingsForDay.map((booking) => (
@@ -58,7 +60,9 @@ function Booking({ stationId, stationName }) {
               to="/roadsurfer_ws/booking"
               state={{
                 stationId: booking.pickupReturnStationId,
-                stationName: stationName,
+                customerName: booking.customerName,
+                startDate: booking.startDate,
+                endDate: booking.endDate,
                 bookingId: booking.id,
               }}
             >
@@ -72,6 +76,7 @@ function Booking({ stationId, stationName }) {
     return daysBookings;
   };
 
+  //functions for handling previous and next buttons
   const handlePrevious = () => {
     week === 0 ? setWeek(week) : setWeek(week - 1);
   };

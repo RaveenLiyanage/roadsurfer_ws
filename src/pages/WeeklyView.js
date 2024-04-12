@@ -9,8 +9,11 @@ function WeeklyView() {
   return (
     <div className="flex flex-col w-full h-full bg-slate-300">
       <Header />
-      <StationSelection setStationId={setStationId} setStationName={setStationName}/>
-      <Booking  stationId={stationId} stationName={stationName}/>
+      <StationSelection
+        setStationId={setStationId}
+        setStationName={setStationName}
+      />
+      <Booking stationId={stationId} stationName={stationName} />
     </div>
   );
 }
