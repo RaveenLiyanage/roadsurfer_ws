@@ -5,15 +5,14 @@ import Header from "../components/Header/Header";
 
 function WeeklyView() {
   const [stationId, setStationId] = useState(1);
-  const [stationName, setStationName] = useState();
+
   return (
-    <div className="flex flex-col w-full h-full bg-slate-300">
+    <div className="flex flex-col w-full h-full bg-slate-100">
       <Header />
       <StationSelection
         setStationId={setStationId}
-        setStationName={setStationName}
       />
-      <Booking stationId={stationId} stationName={stationName} />
+      <Booking stationId={stationId} />
     </div>
   );
 }

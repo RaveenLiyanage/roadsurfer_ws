@@ -25,7 +25,7 @@ function BookingDetail() {
   console.log(details);
 
   return (
-    <div className="bg-gray-200 rounded-md">
+    <div className="h-full bg-gray-200 border-8 rounded-md p-9">
       <div className="text-xl text-slate-950">
         Customer Name : {customerName}
       </div>
@@ -35,15 +35,17 @@ function BookingDetail() {
       <div className="text-xl text-orange-700">
         End date : {moment(endDate).format("dddd, MMMM Do YYYY, h:mm:ss a")}
       </div>
-      <div className="text-xl text-orange-700">
+      <div className="text-xl text-slate-950">
         Duration : {moment(endDate).diff(moment(startDate), "days")}
       </div>
       <div className="text-xl text-slate-950">
         Pickup Station : {details.name}
       </div>
-      <div>
-        <Link to="/roadsurfer_ws">Go Back to Bookings</Link>
-      </div>
+      <button className="h-20 p-4 bg-blue-700 border-8 rounded-lg">
+        <Link to="/roadsurfer_ws" state={{stationId: pickupReturnStationId}}>
+          Go Back to Bookings
+        </Link>
+      </button>
     </div>
   );
 }

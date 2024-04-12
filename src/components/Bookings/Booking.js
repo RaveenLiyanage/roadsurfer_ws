@@ -54,7 +54,7 @@ function Booking({ stationId }) {
     daysBookings.push(
       <div>
         {bookingsForDay.map((booking) => (
-          <div className="p-2 bg-yellow-300 border-8 rounded-md">
+          <div className="p-2 font-semibold bg-blue-500 border-8 rounded-md">
             <Link
               className="flex flex-col"
               to="/roadsurfer_ws/booking"
@@ -89,7 +89,7 @@ function Booking({ stationId }) {
     <div>
       <div className="flex items-center justify-around">
         <button
-          className="p-5 text-2xl bg-red-300 border-black border-solid rounded-md h-2/4"
+          className="p-5 text-2xl bg-blue-300 border-black border-solid rounded-md h-2/4"
           onClick={handlePrevious}
         >
           <AiFillCaretLeft />
@@ -98,20 +98,20 @@ function Booking({ stationId }) {
           Week {week} form {weekStartDate} to {weekEndDate}
         </div>
         <button
-          className="p-5 text-2xl bg-red-300 border-black border-solid rounded-md h-2/4"
+          className="p-5 text-2xl bg-blue-300 border-black border-solid rounded-md h-2/4"
           onClick={handleNext}
         >
           <AiFillCaretRight />
         </button>
       </div>
       <div
-        className="flex justify-around grid-cols-7 border-t-8 bg-slate-300 day"
+        className="flex justify-around grid-cols-7 border-t-8 bg-slate-100 day"
         key="day-title"
       >
         {moment.weekdays().map((day, i) => (
           <div className="flex flex-col">
             <span
-              className="p-4 text-xl font-semibold bg-orange-300 rounded-md"
+              className="p-4 text-xl font-semibold text-center bg-purple-700 rounded-md text-yellow-50"
               key={day}
             >
               {day}
